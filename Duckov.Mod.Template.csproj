@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <PackageType>Template</PackageType>
+        <PackageVersion>1.0.0</PackageVersion>
+        <PackageId>Duckov.Mod.Template</PackageId>
+        <Title>Duckov Mod Template</Title>
+        <Authors>lxy</Authors>
+        <Description>Template for Duckov Mod</Description>
+        <PackageTags>dotnet-new;templates;Duckov</PackageTags>
+        <RepositoryUrl>https://github.com/lxymahatma/Duckov.Mod.Template</RepositoryUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <IncludeContentInPack>true</IncludeContentInPack>
+        <IncludeBuildOutput>false</IncludeBuildOutput>
+        <ContentTargetFolders>content</ContentTargetFolders>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <NoDefaultExcludes>true</NoDefaultExcludes>
+        <LangVersion>latest</LangVersion>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <RootNamespace>templatepack</RootNamespace>
+        <OutputPath>$(SolutionDir)\bin</OutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="DuckovModTemplate\**\*" Exclude="DuckovModTemplate\**\bin\**;DuckovModTemplate\**\obj\**;DuckovModTemplate\**\.idea\**"/>
+        <Compile Remove="**\*"/>
+    </ItemGroup>
+
+</Project>

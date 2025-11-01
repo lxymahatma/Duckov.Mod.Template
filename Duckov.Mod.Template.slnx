@@ -1,0 +1,4 @@
+﻿<Solution>
+  <Project Path="Duckov.Mod.Template.csproj" />
+  <Project Path="DuckovModTemplate\DuckovModTemplate.csproj" Type="Classic C#" />
+</Solution>
