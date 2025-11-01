@@ -8,7 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Remove="Directory.Build.props"/>
+        <None Update="info.ini">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
     </ItemGroup>
 
     <ItemGroup>
@@ -77,6 +79,9 @@
         </Reference>
         <Reference Include="LeTai.TrueShadow">
             <HintPath>$(DUCKOV_GAME_MANAGED)\LeTai.TrueShadow.dll</HintPath>
+        </Reference>
+        <Reference Include="MiniExcel">
+            <HintPath>$(DUCKOV_GAME_MANAGED)\MiniExcel.dll</HintPath>
         </Reference>
         <Reference Include="Newtonsoft.Json">
             <HintPath>$(DUCKOV_GAME_MANAGED)\Newtonsoft.Json.dll</HintPath>
@@ -272,14 +277,15 @@
 
     <Target Name="CopyToModsFolder" AfterTargets="Build">
         <PropertyGroup>
-            <_ModFolder>$(DUCKOV_MODS_DIRECTORY)\$(ProjectName)</_ModFolder>
+            <_ModFolder>$(DUCKOV_MODS_DIRECTORY)\$(RootNamespace)</_ModFolder>
+            <_SourceFiles>$(OutputPath)\$(AssemblyName).dll;$(OutputPath)\info.ini</_SourceFiles>
         </PropertyGroup>
 
         <Copy
-                SourceFiles="$(OutputPath)\$(AssemblyName).dll"
+                SourceFiles="$(_SourceFiles)"
                 DestinationFolder="$(_ModFolder)"
                 SkipUnchangedFiles="true"/>
-        <Message Text="Copied DLL -&gt; $(_ModFolder)\$(AssemblyName).dll" Importance="High"/>
+        <Message Text="Copied DLL and info.ini to $(_ModFolder)" Importance="High"/>
     </Target>
 
 </Project>
